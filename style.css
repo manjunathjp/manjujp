@@ -1,0 +1,265 @@
+/* styles.css */
+:root {
+  --primary-color: blue;
+  --secondary-color: green;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  scroll-behavior: smooth;
+  color: #333;
+}
+
+.navbar {
+  background-color: var(--primary-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin-left: 1.5rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--secondary-color);
+  outline: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  display: block;
+  position: relative;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+.nav-toggle.active .hamburger {
+  background-color: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav-toggle.active .hamburger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Hero Section */
+.hero-section {
+  padding-top: 80px; /* navbar height */
+  background-color: #fff;
+  padding-bottom: 2rem;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+.hero-img {
+  width: 300px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background-color: #ddd;
+}
+
+.hero-content h1 {
+  margin-top: 0;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  color: #555;
+}
+
+/* About Section */
+.about-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.about-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Skills Section */
+.skills-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem 2rem;
+}
+
+.skills-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-card {
+  background-color: white;
+  border: 2px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  flex: 1 1 120px;
+  text-align: center;
+  cursor: default;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover,
+.skill-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 128, 0, 0.3);
+  outline: none;
+}
+
+/* Contact Section */
+.contact-section {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.contact-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.contact-section a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-section a:hover,
+.contact-section a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-img {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    border-radius: 0 0 0 8px;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    margin: 0.5rem 0;
+    margin-left: 0;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
